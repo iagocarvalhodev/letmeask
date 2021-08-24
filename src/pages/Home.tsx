@@ -2,6 +2,7 @@ import styled from "styled-components";
 import googleIcon from "../assets/images/google-icon.svg";
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
+import { Button } from "../components/Button";
 
 export function Home() {
   return (
@@ -14,22 +15,20 @@ export function Home() {
       <main>
         <S.MainContent>
           <img src={logoImg} alt="Letmeask" />
-          <button>
+          <S.ButtonCreateRoom>
             <img src={googleIcon} alt="Logo do google" />
             Crie sua sala com o google
-          </button>
+          </S.ButtonCreateRoom>
           <S.Separator>ou entre em uma sala</S.Separator>
           <form action="">
             <input type="text" placeholder="digite o código da sala" />
-            <button type="submit">Entrar na sala</button>
+            <Button type="submit">Entrar na sala</Button>
           </form>
         </S.MainContent>
       </main>
     </S.Content>
   );
 }
-
-// 33 min
 
 export const S = {
   Content: styled.div`
@@ -101,5 +100,49 @@ export const S = {
       }
     }
   `,
-  Separator: styled.div``,
+  ButtonCreateRoom: styled.button`
+    margin-top: 64px;
+    height: 50px;
+    border-radius: 8px;
+    background: #ea4335;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+
+    transition: filter 0.2s;
+
+    img {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  `,
+  Separator: styled.div`
+    font-size: 14px;
+    color: #a8a8b3;
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #a8a8b3;
+      margin-left: 16px;
+    }
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #a8a8b3;
+      margin-left: 16px;
+    }
+  `,
 };
