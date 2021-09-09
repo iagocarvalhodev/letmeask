@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import googleIcon from "../assets/images/google-icon.svg";
 import illustrationImg from "../assets/images/illustration.svg";
@@ -5,6 +6,12 @@ import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
 
 export function Home() {
+  const history = useHistory();
+
+  function navigateToNewRoom() {
+    history.push("/rooms/new");
+  }
+
   return (
     <S.Content>
       <aside>
@@ -15,7 +22,7 @@ export function Home() {
       <main>
         <S.MainContent>
           <img src={logoImg} alt="Letmeask" />
-          <S.ButtonCreateRoom>
+          <S.ButtonCreateRoom onClick={navigateToNewRoom}>
             <img src={googleIcon} alt="Logo do google" />
             Crie sua sala com o google
           </S.ButtonCreateRoom>
